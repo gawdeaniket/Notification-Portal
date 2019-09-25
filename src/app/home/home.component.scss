@@ -1,0 +1,161 @@
+button:focus {outline:0;}
+input, textarea:focus, select:focus{
+    outline: none;
+}
+
+button:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+      
+}
+.failure-container{
+    margin-top:12vh;width: 90%;margin-left: 5%;margin-bottom: 1vh;
+}
+.text-danger{
+    margin-left:2vw;font-size: 1.7vw;
+}
+.table-container{
+    margin-bottom: 5vh;
+}
+.filename{
+    overflow: hidden;float: left;width:70%;height:100%;background-color:#ffffff;margin: 0px;text-align: center;padding-top:10px;font-size: 16px; 
+}
+.filename:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+}
+.choosefile-label{font-weight: bold;
+    float: right;width:30%;height:100%;background-color:#eeeeee;margin: 0px;text-align: center;padding-top: 9px;border-radius: 0px 10px 10px 0px;font-size: 1.3vw;cursor: pointer;
+}
+.upload-button{
+    padding:1vh 3vw;margin-left: 43%;margin-right: auto;margin-top: 6vh;font-size: 1.4vw;background-color: #fcdb04;color: #000000;border: 1px solid rgba(0, 0, 0, 0.19);box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);font-weight: bold;
+}
+.file-upload-container{
+    margin-top: 13vh;display: block;width: 100%;
+}
+.containers{height: 7vh;overflow: hidden;
+    width:35%;padding:0px;margin-left: auto;margin-right: auto;border-radius: 10px;margin-top: 8vh;
+    cursor: pointer;padding-left: 9px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// custom alert
+.alert{
+    min-width: 20%;margin-left:auto;margin-right:auto;border-radius:10px;min-height:15vh;border:1px solid rgba(0, 0, 0, 0.2);min-width:10%;position:fixed;top:35%;left: 36%;z-index: 100;
+    background-color: #fcdb04;color: #000000;text-align: center;
+    strong{
+        margin-left:2.5vw;
+        font-size: 1.3vw
+    }
+}
+.alert-button{
+    background-color:#000000 ;color: #fcdb04;
+    width: 40%;margin-left: 20%;
+}
+
+.text-style{
+    font-weight: bold;font-size: 2.4vw;width: 100%;text-align: center;margin-top: 2vh;
+    }
+
+    .download-template-container{
+        text-align: center;font-size:20px;width:100%;margin-top:4vh;
+        a{
+            text-decoration: underline;cursor:pointer;color: blue;
+        }
+    }
+
+table {
+    
+    margin-left: 2vw;
+    margin-right: 2vw;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 5px;
+      }
+  }
+  .form-group{
+      margin-top: 20px;
+  }
+  .control-label{
+      font-weight: bold;
+  }
+  .form-control{
+      padding: 10px;
+  }
+  .form-container{
+    width:50%;padding: 5px;margin-left: auto;margin-right: auto;border: 1px solid #dddddd;
+    background-color: #ffffff;border-radius: 10px;padding:0px;
+  }
+  .form-heading{
+    width: 100%;height:60px;text-align: center;padding-top: 10px;font-size: 2vw;border-radius: 10px 10px 0px 0px;
+    strong{
+        display: inline;margin-left: 5vw;
+    }
+  }
+  .clear-all{
+    display: inline;
+    float: right;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 2px 8px;;
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-right: 1.6vw;
+    margin-top: 1vh;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+}
+.clear-all:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+    padding: 6px;
+}
+.added-angazaId-container{
+    width: 100%;max-height:15vh;overflow-y:auto;padding: 6px;font-weight: bold;
+    span{
+        background-color:#eeeeee;padding:4px 2px 5px 6px;min-width: 15%;margin-left: 2%;border-radius: 5px;display: inline;float: left;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.19);
+        i{
+            padding:3px 0px 3px 0px;font-size: 1.3vw;font-weight: bold;cursor: pointer;display: inline;
+        }
+    }
+    
+}
+  .control-label{
+      margin-top: 1vh;display: inline;float:left;
+  }
+  .col-sm-8{
+    display: inline;float:left
+  }
+  .add-angaza-id{
+    display: inline; float:left; border:1px solid #dddddd;padding: 0px;
+    input{
+        padding: 7px;width: 82%;display: inline;float: left;border: none
+    }
+  }
+  .add-anagaza-id-icon{
+    width: 17%;display: inline;float:right;border:1px solid #dddddd;
+    padding: 6px;background-color: #eeeeee;
+    font-weight: bold;cursor: pointer;
+  }
+  .error-container{
+    display:block;float: left;margin: 0px;padding:0px;
+    div{
+        margin-left: 14vw;color: red;margin-top: 4px;
+    }
+  }
+  .submit-button-container{
+    width: 100%;display: block;
+    button{
+        border: 1px solid rgba(0, 0, 0, 0.3);font-weight: bold;background-color: #fcdb04;color: #000000;width: 30%;margin-left: 35%;margin-bottom: 10px;
+    }
+  }
+  .stock-details-cancel{
+    cursor: pointer;font-size:8vh;font-weight: bold;float: right;position: fixed;top: 13vh;right: 2vw;z-index: 99;
+  }
+  .display-form-container{
+    background-color: rgba(0,0,0,0.2);
+    min-height: 100vh;width: 100%;margin: 0px;padding-top: 5vh;
+  }

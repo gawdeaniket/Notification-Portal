@@ -1,0 +1,66 @@
+.loginCard{
+    margin-top: 10%;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;padding: 0px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-field{
+  margin: 0px;width:90%;margin-left: 5%;margin-top: 3vh;margin-bottom: 0px;
+  
+}
+.hide-show-button{
+  background: transparent;border:none;
+}
+.bg-image {
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+   background-image: url("../../assets/imgs/bg.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    width: 100% !important;
+    height: 100vh !important;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+  .login-card-header{
+    background-color:#fcdb04;padding: 0px;margin: 0px;height: 10vh;border-radius: 10px 10px 0px 0px;
+  }
+  .logo-card{
+    height:100%;margin:0px;padding: 10px;text-align: left ;margin-left: 25%;
+    img{
+      height:90% !important;width:45% !important;
+    }
+  }
+  .error-message-container{
+    margin: 0px;padding:0px;
+  }
+  .error-text{
+    text-align: left;margin-left: 30px;color: red;margin-top: 0px;padding-top: 0px;
+  }
+  .login-button{
+   border: none; width: 30%;margin-left: 35%;margin-top: 2vh;padding: 10px;background-color: #fcdb04;font-weight: bold;margin-bottom: 2vh;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .loginCard{
+    margin-top: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .logo-card{
+    height:100%;margin:0px;padding: 10px;text-align: left ;margin-left: 25%;
+    img{
+      height:60% !important;width:100px !important;
+    }
+  }
+  }

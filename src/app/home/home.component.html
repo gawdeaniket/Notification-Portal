@@ -1,0 +1,168 @@
+<app-header></app-header>
+<ngx-loading [show]="loading"></ngx-loading>
+<div *ngIf="successAlert" class="alert alert-success alert-dismissible">
+    <strong >{{message}}</strong>
+    <br><br>
+    <button class="btn btn-default alert-button" (click)="successAlert = false">OK</button>
+</div>
+<div *ngIf="!quickUpload">
+    <div class="text-style"> Notification</div>    
+    <div class="file-upload-container">
+        <div class="containers">
+            <span *ngIf="fileToUpload" class="filename">{{fileToUpload.name}}</span>
+            <input type="file" style="display:none"
+                   id="file"
+                   (change)="handleFile($event.target.files)">
+            <label for="file" class="choosefile-label" accept=".csv">Choose File</label>                     
+        </div>
+        <button type="button" 
+                class="btn btn-primary upload-button" 
+                (click)="handleFileInput()">Upload File
+        </button>
+        <div class="download-template-container">
+            <a (click)="quickUploadConent()">Quick Upload</a>
+        </div>
+    </div>   
+    <div class="failure-container" *ngIf="failurealert">
+    <label class="text-danger">Failure Reasons </label>
+    <div class="table-container">
+        <table>
+        <thead style="width: calc( 100% - 1.2vw );display:table;table-layout:fixed;">
+            <tr>
+            <th style="width: 16vw;">LoanProposal ID</th>             
+            <th>Remarks</th>       
+            </tr>
+        </thead>
+        <tbody style="display:block;max-height:40vh !important; overflow-y:scroll;">
+            <tr *ngFor="let failure of failureResponse" style="display:table; width:100%; table-layout:fixed;">
+            <td style="width: 16vw;">{{failure.OrderID}}</td>      
+            <td>{{failure.Remarks}}</td>           
+            </tr>
+        </tbody>  
+        </table>
+    </div>
+    </div> 
+</div>
+<div class="display-form-container" *ngIf="quickUpload">
+    <div *ngIf="successAlert" class="alert alert-success alert-dismissible">
+        <strong *ngIf="message">{{message}}</strong>
+        <br><br>
+        <button class="btn btn-default alert-button" (click)="successAlert = false">OK</button>
+    </div>
+    <i class="material-icons stock-details-cancel" (click)="quickUpload  = false">
+        clear
+    </i>
+    <div class="form-container">
+        <div class="form-heading">
+            <strong>Quick Notification</strong>
+            <button (click)="quickUploadConent()" class="btn-btn-primary clear-all">Clear All</button>
+        </div>
+        <div class="added-angazaId-container">
+            <span *ngFor="let id of multipleAngazaId;let i = index;"> 
+                {{id}}
+                <i class="material-icons" (click)="removeAngazaId(i)">clear</i>
+            </span>
+        </div>
+        <form [formGroup]="loginform" (ngSubmit)="login(angazaid.value)" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="angazaid">
+                    Angaza Id:
+                </label>
+                <div class="col-sm-8">
+                    <div class="add-angaza-id">
+                        <input #angazaid 
+                               formControlName="angazaId" 
+                               [(ngModel)]="angazaId" 
+                               type="text"  
+                               id="email" 
+                               placeholder="Enter Angaza Id" 
+                               (input)="demoCheck($event.data)"
+                               name="email">
+                        <span (click)="addAngazaId()" 
+                              class="add-anagaza-id-icon">
+                            <i class="material-icons">add</i>
+                        </span>
+                    </div>       
+                </div>
+                <div class="col-sm-1"></div>
+                <br>
+            </div>
+            <div *ngIf="angazaId_user" class="error-container">
+                <div *ngIf="multipleAngazaId.length == 0">
+                    Angaza Id is mandatory
+                </div>
+            </div> 
+            <br>
+            <div class="form-group">
+                <label  class="control-label col-sm-3">Title:</label>
+                <div class="col-sm-8">          
+                    <input type="text" 
+                           #title 
+                           formControlName="title" 
+                           [(ngModel)]="Title" 
+                           class="form-control" 
+                           placeholder="Enter Title" 
+                           name="pwd">
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <br>
+            <div *ngIf="title_user" class="error-container">
+                <div style="margin-left: 2vw;" *ngIf="loginform.controls['title'].hasError('required') ">
+                    Title is mandatory
+                </div>
+            </div> 
+            <br>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Image Path:</label>
+                <div class="col-sm-8">
+                    <input type="text" 
+                           #imgpath 
+                           formControlName="imgPath"   
+                           [(ngModel)]="imgPath" 
+                           class="form-control" 
+                           placeholder="Enter Image Path" 
+                           name="pwd">
+                </div>
+                <div class="col-sm-1"></div>
+                </div>
+                <br>
+                <div *ngIf="imgPath_user" class="error-container">
+                    <div style="margin-left: 2vw;" *ngIf="loginform.controls['imgPath'].hasError('required') ">
+                        Image Path is mandatory
+                    </div>
+                </div> 
+                <div class="form-group" style="padding-top: 5vh;">
+                    <label class="control-label col-sm-3">Content Body:</label>
+                    <div class="col-sm-8">          
+                        <textarea #body 
+                                  formControlName="body" 
+                                  [(ngModel)]="Body" 
+                                  class="form-control rounded-0" 
+                                  id="exampleFormControlTextarea2" 
+                                  rows="3" 
+                                  placeholder="content">
+                        </textarea>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <br>
+                <div  *ngIf="body_user" class="error-container">
+                    <div *ngIf="loginform.controls['body'].hasError('required') ">
+                        Body is mandatory
+                    </div>
+                </div> 
+                <br><br><br>
+                <div class="form-group"> 
+                           <!--[disabled]="loginform.invalid"  -->
+                    <div class="submit-button-container">
+                        <button type="submit" 
+                                [disabled]="loginform.invalid" 
+                                class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+        </form>        
+    </div>
+</div> 

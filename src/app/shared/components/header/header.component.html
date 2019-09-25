@@ -1,0 +1,28 @@
+    <div *ngIf="alertcheck" class="alert alert-success alert-dismissible" style="z-index: 99;">
+        
+            <strong style="font-size: 18px;">Are you sure you want to logout?</strong><br> 
+            <div style="width: 100%;">
+            <button  data-dismiss="alert" (click)="logout()"
+            style="display:inline;float: left;width:30%;margin-left:20%;margin-right:auto;margin-top:30px;background-color: #000000;color:#fcdb04;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);border: none;padding: 7px; ">
+            
+                OK</button>
+            <button  data-dismiss="alert" (click)="alertcheck = false"
+            style="display:inline;float: left;width:30%;margin-left:10%;margin-right:auto;margin-top:30px;background-color: #000000;color:#fcdb04;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);border: none;padding: 7px; ">
+            
+            CANCEL</button>
+            </div>
+    </div> 
+
+    <div class="header" >
+        <!-- <a *ngIf="homeIconFlag">
+                <span class="glyphicon glyphicon-home" [routerLink]="['']"></span>
+            </a> -->
+    <a class="logo">
+         <img src="../../../notification/assets/imgs/logo.png" [routerLink]="['']" class="logo-img" >
+    </a>
+    <span style="display: inline;float: right;margin-right: 2vw;">
+         <button type="button" class="logout" style="margin-top: 14px;" 
+                  (click)="alertcheck= true ">logout
+         </button>
+    </span> 
+</div>

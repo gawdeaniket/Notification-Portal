@@ -1,0 +1,57 @@
+<div class="bg-image">
+    <mat-card class="loginCard">
+      <mat-card-header class="login-card-header">
+        <a class="logo-card" >
+          <img src="../../../notification/assets/imgs/logo.png">
+        </a>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <form [formGroup]="loginform" (ngSubmit)="login(email.value,pass.value )" class="form-group">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput #email autofocus  
+                   formControlName="email" 
+                   [(ngModel)]="username" 
+                   placeholder="Please enter username" 
+                   (keypress)="close($event,'username')">
+          </mat-form-field>
+          <span class="error-message-container" *ngIf="email_user">
+            <div class="error-text" *ngIf="loginform.controls['email'].hasError('required') ">
+              Uesrname is Required
+            </div>
+            <div class="error-text" *ngIf="loginform.controls['email'].hasError('pattern')">
+              Special character and space are not allowed
+            </div>
+          </span>
+          <br>
+          <mat-form-field class="form-field" style="margin-top:0px;" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput #pass autofocus 
+                   formControlName="pass" 
+                   [(ngModel)]="password" 
+                   (ngModelChange)="close($event,'pass')" 
+                   placeholder="Enter your password" 
+                   [type]="hide ? 'password' : 'text'">
+            <button type="button" class="hide-show-button"
+                    matSuffix (click)="hide = !hide" 
+                    [attr.aria-label]="'Hide password'" 
+                    [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <span *ngIf="pass_user" class="error-message-container">
+            <div class="error-text" *ngIf="loginform.controls['pass'].hasError('required')"  >
+              Please enter a password.
+            </div>
+          </span>
+          <button type="submit" class="btn login-button" 
+                  [disabled]="loginform.invalid">Login
+          </button>
+        </form>
+      </mat-card-content>
+      <!-- <mat-card-actions align="center">
+      </mat-card-actions> -->
+    </mat-card>
+  </div>
+        
+  

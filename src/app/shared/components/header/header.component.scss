@@ -1,0 +1,69 @@
+.header{
+    background-color: #fcdb04;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: sticky;
+    top:0px;
+    z-index: 1000;
+    height: 10vh;
+   
+}
+
+.logout{
+    font-size: 14px;
+    padding: 7px 15px;
+    float: right;
+    border:1px solid #000000;
+    background: #000000;
+    color: #fcdb04;
+    margin-top: 0px;
+    margin-bottom: 0.5vh;
+    border-radius: 5px;
+}
+
+.alert{
+    text-align: center;
+    font-weight: bold;
+    min-height:10%;min-width:10%;position:fixed;top:40%;z-index:1;left: 36%;
+    padding: 20px 40px;
+    background-color:#fcdb04 ;
+    color:#000000;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0px 10px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.glyphicon{
+    display: inline;
+    float: left;
+    color: #000000;
+    font-weight: bold;
+    font-size: 4vh;
+    margin-left: 3%;
+    margin-top: 2.5vh;
+    cursor: pointer;
+}
+.logo{
+    height:80%;margin:0px;padding: 0px;text-align: left ;margin-left: 2%;
+    cursor: pointer;display: inline;
+    float: left;
+}
+.logo-img{
+    height:80% !important;margin-top: 8%;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo{
+       margin:0px;padding: 0px;text-align: left ;margin-left: 7%;
+       cursor: pointer;
+        
+    } 
+    .logo-img{
+        height:70% !important;margin-top: 1vh;width: 100px;
+    }
+    .alert{
+        text-align: center;
+        font-weight: bold;
+        min-height:10%;width:90%;position:fixed;top:30%;left:5%;z-index:1;
+        padding: 10px 20px;
+        background-color:#fcdb04 ;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0px 10px 10px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
