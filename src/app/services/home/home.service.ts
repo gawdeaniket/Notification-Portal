@@ -13,7 +13,7 @@ export class HomeService {
   notificationCallfile(file){
       // this.data = []
       const endpoint = this.endpoint;
-      console.log(file);
+      //console.log(file);
       const formData: FormData = new FormData();
       formData.append('notificationFile', file);
       let headers: HttpHeaders = new HttpHeaders();
@@ -21,7 +21,7 @@ export class HomeService {
       return new Promise((resolve, reject) => {
         this.httpClient.post(endpoint + 'send-bulk-notifications-file', formData ,{ headers: headers })
         .subscribe((data: any) => {
-          console.log(data);
+         // console.log(data);
          resolve(data);
         },(err)=>{
          reject(err);

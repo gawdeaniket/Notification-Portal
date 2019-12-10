@@ -20,7 +20,7 @@
                 (click)="handleFileInput()">Upload File
         </button>
         <div class="download-template-container">
-            <a (click)="quickUploadConent()">Quick Upload</a>
+            <a (click)="quickUploadContentClearAll()">Quick Upload</a>
         </div>
     </div>   
     <div class="failure-container" *ngIf="failurealert">
@@ -55,7 +55,8 @@
     <div class="form-container">
         <div class="form-heading">
             <strong>Quick Notification</strong>
-            <button (click)="quickUploadConent()" class="btn-btn-primary clear-all">Clear All</button>
+            
+            <button (click)="quickUploadContentClearAll()" class="btn-btn-primary clear-all">Clear All</button>
         </div>
         <div class="added-angazaId-container">
             <span *ngFor="let id of multipleAngazaId;let i = index;"> 
@@ -66,7 +67,7 @@
         <form [formGroup]="loginform" (ngSubmit)="login(angazaid.value)" class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-3" for="angazaid">
-                    Angaza Id:
+                    Angaza Id <span style="color: tomato;font-weight: bold;font-size: 1.3vw;">*</span> :
                 </label>
                 <div class="col-sm-8">
                     <div class="add-angaza-id">
@@ -94,7 +95,7 @@
             </div> 
             <br>
             <div class="form-group">
-                <label  class="control-label col-sm-3">Title:</label>
+                <label  class="control-label col-sm-3">Title <span style="color: tomato;font-weight: bold;font-size: 1.3vw;">*</span> :</label>
                 <div class="col-sm-8">          
                     <input type="text" 
                            #title 
@@ -120,6 +121,7 @@
                            #imgpath 
                            formControlName="imgPath"   
                            [(ngModel)]="imgPath" 
+                           (ngModelChange)="imgPathValidation($event)"
                            class="form-control" 
                            placeholder="Enter Image Path" 
                            name="pwd">
@@ -128,12 +130,53 @@
                 </div>
                 <br>
                 <div *ngIf="imgPath_user" class="error-container">
-                    <div style="margin-left: 2vw;" *ngIf="loginform.controls['imgPath'].hasError('required') ">
+                    <!-- <div style="margin-left: 2vw;" *ngIf="loginform.controls['imgPath'].hasError('required') ">
                         Image Path is mandatory
-                    </div>
+                    </div> -->
+                    <div style="margin-left: 2vw;" *ngIf="!imgErrorCheck">
+                            Image Path is Invalid
+                        </div>
                 </div> 
+                <br>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Module :</label>
+                <div class="col-sm-8">
+                    <input type="text" 
+                           formControlName="module"   
+                           [(ngModel)]="module" 
+                           class="form-control" 
+                           placeholder="Enter Module" 
+                           name="pwd">
+                </div>
+                <div class="col-sm-1"></div>
+                </div>
+                <br>
+                <div *ngIf="imgPath_user" class="error-container">
+                    <div style="margin-left: 2vw;" *ngIf="loginform.controls['imgPath'].hasError('required') ">
+                        Module is mandatory
+                    </div>
+                </div>
+                <br>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Activity Id :</label>
+                <div class="col-sm-8">
+                    <input type="number" 
+                           formControlName="activityId"   
+                           [(ngModel)]="activityId" 
+                           class="form-control" 
+                           placeholder="Enter Activity Id (Only Numbers)" 
+                           name="pwd">
+                </div>
+                <div class="col-sm-1"></div>
+                </div>
+                <br>
+                <div *ngIf="imgPath_user" class="error-container">
+                    <div style="margin-left: 2vw;" *ngIf="loginform.controls['imgPath'].hasError('required') ">
+                        Activity Id is mandatory
+                    </div>
+                </div>
                 <div class="form-group" style="padding-top: 5vh;">
-                    <label class="control-label col-sm-3">Content Body:</label>
+                    <label class="control-label col-sm-3">Content Body <span style="color: tomato;font-weight: bold;font-size: 1.3vw;">*</span> :</label>
                     <div class="col-sm-8">          
                         <textarea #body 
                                   formControlName="body" 
@@ -164,5 +207,17 @@
                     </div>
                 </div>
         </form>        
+    </div>
+    <span class="glyphicon glyphicon-alert" style="color: tomato;"></span>
+    <div *ngIf="imgPath" 
+    style="height: 26vh !important;width: 13% !important;background-color: #ffffff;display: inline;float: left;text-align: center;margin-top: 26vh;margin-left: 2%;font-size: 1.3vw;font-weight: bold;">
+        <div *ngIf="!imgErrorCheck" style="margin-top: 5vh;">
+                <i class="material-icons" style="font-size:48px;color:red">warning</i>
+            <p> Invalid Image</p>
+        </div>
+        
+        <img *ngIf="imgErrorCheck"  [src]="imgPath" 
+             (error)="imgErrors()"
+             style="width: 100% !important;height: 100% !important;" >
     </div>
 </div> 
